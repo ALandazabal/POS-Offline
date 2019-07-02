@@ -1,0 +1,9 @@
+directories:
+  output: dist
+  buildResources: build
+appId: POS v1
+asar: true
+win:
+  target: NSIS
+  icon: build/logo.ico
+electronVersion: 5.0.3

@@ -547,4 +547,11 @@ div.dataTables_wrapper div.dataTables_length select {
   background-size: contain;
   background-repeat-y: no-repeat; }
 
+.sides-padding {
+  padding-right: 2em !important;
+  padding-left: 2em !important; }
+
+.padding-section {
+  padding: 2em !important; }
+
 /*# sourceMappingURL=style.css.map */
