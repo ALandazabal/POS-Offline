@@ -1,0 +1,10 @@
+gris para el menu #f6f4f5 rgb(246, 244, 245)
+gris cuerpo rgb(246, 244, 245)
+gris iconos del menu rgb(76, 75, 80)
+gris menu hamburgeusa rgb(154, 154, 154)
+gris backgorund de filtros rgb(249, 249, 249)
+azul boton de crear uevo rgb(0, 114, 176)
+menu var y container rgb(255, 255, 255)
+place holder de filtros rgb(99, 99, 99)
+
+azul para titulos rgb(0, 114, 176)

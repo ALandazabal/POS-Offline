@@ -1,0 +1,329 @@
+<template class="section-template">
+	<section id="complains" class=" margin-top d-none">
+	 	<div class="container-complains">
+	 		 <div class="d-sm-flex align-items-center justify-content-between mb-4 title-complains">
+	            <h1 class="h3 mb-0 text-gray-800">Quejas</h1>
+	            <a href="#" data-section="complains-new" onclick="sectionDisplay('#complains-new')" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Nueva Queja</a>
+	          </div>
+	          <div class="card shadow mb-4 card-text filter-box">
+            <!--<div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            </div>-->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-2">
+                                <div class="dataTables_length" id="dataTable_length">
+                                    <label>Filtrar por:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div class="dataTables_length" id="dataTable_length">
+                                    <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm  filterFields" style="padding-left: 10px !important;">
+                                        <option value="Tipo">Tipo</option>
+                                        <option value="Órden de Venta">Órden de Venta</option>
+                                        <option value="Cotización">Cotización</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div id="dataTable_filterInit" class="dataTables_filter">
+                                    <input id="datepickerInit" type="search" class="form-control form-control-sm fontAwesome filterFields" placeholder="Fecha inicial &#xF0D6;" aria-controls="dataTable">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div id="dataTable_filterEnd" class="dataTables_filter">
+                                    <input id="datepickerEnd" type="search" class="form-control form-control-sm  filterFields" placeholder="Fecha fin" aria-controls="dataTable">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div id="dataTable_filterDni" class="dataTables_filter">
+                                    <input type="search" class="form-control form-control-sm  filterFields" placeholder="DNI Cliente" aria-controls="dataTable">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div id="dataTable_filter" class="dataTables_filter">
+                                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  filterFields">
+                                        Filtrar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small background-input-search" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+	          <!-- <div class="filter-complains">
+	          	<form>
+	          				  <div class="form-row">
+	          				  	<div class="col-1">
+	          				      <p>Filtrar Por</p>
+	          				    </div>
+	          				    <div class="col">
+	          				      <select name=""class="form-control" >
+	          				      	<option value="0">Estado</option>
+	          				      	<option value="1">Cerrado</option>
+	          				      	<option value="2">Pendiente</option>
+	          				      	<option value="3">En proceso</option>
+	          				      </select>
+	          				    </div>
+	          				    <div class="col">
+	          				      <input type="text" id="entrada" name="entrada" class="form-control" placeholder="Fecha inicial">
+	          				    </div>
+	          				    <div class="col">
+	          				      <input type="text" id="salida" name="salida" class="form-control datepicker" placeholder="Fecha final">
+	          				    </div>
+	          				    <div class="col">
+	          				      <input type="text"  class="form-control datepicker" placeholder="Cliente">
+	          				    </div>
+	          				     <div class="col-1">
+	          				      <input type="submit" class="form-control btn btn-sm btn-primary shadow-sm" name="" value="Filtrar">
+	          				    </div>
+	          				  </div>
+	          				</form>	
+	          				<div class="row has-search-filter-row">
+	          					<div class="col-1">
+	          						<p>Search</p>
+	          					</div>
+	          					<div class="col-5">
+	          						 <div class="form-group has-search-filter">
+	          						    <span class="fa fa-search form-control-feedback-filter"></span>
+	          						    <input type="text" class="form-control" placeholder="Search">
+	          						  </div>
+	          					</div>
+	          				</div>
+	          </div> -->
+	 		<div class="row-items shadow">
+	 			<div class=" col-4 item-list">
+
+	 				<div class="item-list2">
+
+ 					<!--  <div class="form-group has-search">
+ 						<span class="fas fa-filter form-control-feedback-2"></span>
+ 										    <span class="fa fa-search form-control-feedback"></span>
+ 										    <input type="text" class="form-control rounded-0" placeholder="">
+ 					
+ 										  </div> -->
+	 					<div class="nav block-columns nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+	 						 <a class="nav-link active row" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+						<div class="col-8 info-complain">
+							<p>ID #1232<br>
+							Jhon Doe - 07/06/2019</p>
+							
+						</div>
+						<div class="col-4 item-box-status">
+							<div class="pending-status"><p>Pendiente</p></div>
+						</div>
+						
+					  </a>
+					  <a class="nav-link row" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" >
+					  	<div class="col-8 info-complain">
+							<p>ID #1234<br>
+							Jhon Doe - 07/06/2019</p>
+							
+						</div>
+						<div class="col-4 item-box-status">
+							<div class="closed-status"><p>Cerrado</p></div>
+						</div>
+					  </a>
+					  <a class="nav-link row" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" >
+					  	<div class="col-8 info-complain">
+							<p>ID #1235<br>
+							Jhon Doe - 07/06/2019</p>
+							
+						</div>
+						<div class="col-4 item-box-status">
+							<div class="progress-status"><p>En progreso</p></div>
+						</div>
+					  </a>
+					  
+					 
+	 					</div>
+					 
+					</div>
+					
+	 			</div>
+	 			<div class="col-8 complain-detail">
+	 				<div class="tab-content" id="v-pills-tabContent">
+					  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+	
+					  		<div class="card">
+							  <div class="card-header">
+							  	<div class="col-8">
+							  	ID #1232	
+							  	</div>
+							    
+							    <div class="col-4 complain-box-status">
+									<div class="pending-status"><p>Pendiente</p></div>
+								</div>
+							  </div>
+							  <div class="card-body">
+							  	<div class="row  ">
+							  		<div class="col-4 ">
+							  		 <h5 class="card-title font-weight-bold">Jhon Doe</h5>
+							  		 <p class="tag">Cliente</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">07/06/2019</h6>
+								  		 <p class="tag">Fecha de creación</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">10/10/2019</h6>
+								  		<p class="tag">Fecha de vencimiento</p>
+								  	</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-4">
+							  			<p>Clase</p>
+							  			<p>Tipo</p>
+							  			<p>Ubicación</p>
+							  			<p>Departamanto</p>
+							  			<p>Motivo de queja</p>
+							  		</div>
+							  		<div class="col-8">
+							  			<p class="font-weight-bold">Lorem ipsum.</p>
+							  			<p class="font-weight-bold">consectetur adipisicing elit.</p>
+							  			<p class="font-weight-bold">Duis aute irure.</p>
+							  			<p class="font-weight-bold">sunt in culpa qui.</p>
+							  			<p class="font-weight-bold">Excepteur sint occaecat.</p>
+							  		</div>
+							  	</div>
+							    <h5 class="card-title"></h5>
+							    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							    proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+							  </div>
+							</div>
+						
+					  </div>
+					  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+					  	
+						<div class="card">
+							  <div class="card-header">
+							  	<div class="col-8">
+							  	ID #1234	
+							  	</div>
+							    
+							    <div class="col-4 complain-box-status">
+									<div class="closed-status"><p>Cerrado</p></div>
+								</div>
+							  </div>
+							  <div class="card-body">
+							  	<div class="row  ">
+							  		<div class="col-4 ">
+							  		 <h5 class="card-title font-weight-bold">Jhon Doe</h5>
+							  		 <p class="tag">Cliente</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">07/06/2019</h6>
+								  		 <p class="tag">Fecha de creación</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">10/10/2019</h6>
+								  		<p class="tag">Fecha de vencimiento</p>
+								  	</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-4">
+							  			<p>Clase</p>
+							  			<p>Tipo</p>
+							  			<p>Ubicación</p>
+							  			<p>Departamanto</p>
+							  			<p>Motivo de queja</p>
+							  		</div>
+							  		<div class="col-8">
+							  			<p class="font-weight-bold">Lorem ipsum.</p>
+							  			<p class="font-weight-bold">consectetur adipisicing elit.</p>
+							  			<p class="font-weight-bold">Duis aute irure.</p>
+							  			<p class="font-weight-bold">sunt in culpa qui.</p>
+							  			<p class="font-weight-bold">Excepteur sint occaecat.</p>
+							  		</div>
+							  	</div>
+							    <h5 class="card-title"></h5>
+							    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							    proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+							  </div>
+							</div>
+					  </div>
+					  <div class="tab-pane fade" id="pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+					  	
+					  	<div class="card">
+							  <div class="card-header">
+							  	<div class="col-8">
+							  	ID #1235	
+							  	</div>
+							    
+							    <div class="col-4 complain-box-status">
+									<div class="progress-status"><p>En progreso</p></div>
+								</div>
+							  </div>
+							  <div class="card-body">
+							  	<div class="row  ">
+							  		<div class="col-4 ">
+							  		 <h5 class="card-title font-weight-bold">Jhon Doe</h5>
+							  		 <p class="tag">Cliente</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">07/06/2019</h6>
+								  		 <p class="tag">Fecha de creación</p>
+								  	</div>
+								  	<div class="col-4 text-center">
+								  		<h6 class="card-title font-weight-bold">10/10/2019</h6>
+								  		<p class="tag">Fecha de vencimiento</p>
+								  	</div>
+							  	</div>
+							  	<div class="row">
+							  		<div class="col-4">
+							  			<p>Clase</p>
+							  			<p>Tipo</p>
+							  			<p>Ubicación</p>
+							  			<p>Departamanto</p>
+							  			<p>Motivo de queja</p>
+							  		</div>
+							  		<div class="col-8">
+							  			<p class="font-weight-bold">Lorem ipsum.</p>
+							  			<p class="font-weight-bold">consectetur adipisicing elit.</p>
+							  			<p class="font-weight-bold">Duis aute irure.</p>
+							  			<p class="font-weight-bold">sunt in culpa qui.</p>
+							  			<p class="font-weight-bold">Excepteur sint occaecat.</p>
+							  		</div>
+							  	</div>
+							    <h5 class="card-title"></h5>
+							    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							    proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+							  </div>
+							</div>
+					  </div>
+					  
+					</div>
+	 			</div>
+	 			
+	 		</div>
+	 	</div>					
+	</section>
+</template>

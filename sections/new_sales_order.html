@@ -1,0 +1,349 @@
+<template class="section-template">
+        <section id="new_sales_order" class="wrapper margin-top section-padding d-none">
+            <div class="row">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" data-section="sales_order_section">Órdenes</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Nueva Órden / Cotización</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Órdenes de venta / cotización</h1>
+            </div>
+    
+            <div class="row">
+    
+                <div class="col-lg-6">
+    
+                    <!-- Default Card Example -->
+                    <div class="card mb-4 card-text">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Datos de la órden</h6>
+                        </div>
+                        <div class="card-body">
+                            
+                            <div class="form-group row justify-content-around">
+                                <div class="col-sm-5">
+                                    <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-sm-5">
+                                    <a href="#" data-toggle="modal" data-target="#newUserModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm filterFields">
+                                        <i class="fas fa-user-plus fa-sm text-white-50"></i> Nuevo cliente
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around">
+                                <div class="col-sm-5">
+                                    <select name="dataTable_length" aria-controls="dataTable" class="padding-left-select custom-select custom-select-sm form-control form-control-sm">
+                                        <option value="Tipo">Tipo</option>
+                                        <option value="Órden de Venta">Órden de venta</option>
+                                        <option value="Cotización">Cotización</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5">
+                                    <select name="dataTable_length" aria-controls="dataTable" class="padding-left-select custom-select custom-select-sm form-control form-control-sm">
+                                        <option value="Tipo">Tarjeta de descuento</option>
+                                        <option value="Órden de Venta">Cliente frecuente</option>
+                                        <option value="Cotización">Bono regalo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around">
+                                <div class="col-sm-5">
+                                    <label for="customSwitch2" class="col-sm-8 col-form-label">Órden por Aprobar</label>
+                                    <div class="col-sm-2 custom-control custom-switch switch-position">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                                        <label class="custom-control-label" for="customSwitch2"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Número de Cupón">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-6">
+    
+                  <!-- Dropdown Card Example -->
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Totales</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row justify-content-around delete-margin">
+                                <div class="col-sm-5 subcard">
+                                    <label for="customSwitch1" class="col-sm-5 col-form-label">Órden por Aprobar</label>
+                                    <div class="col-sm-6 custom-control custom-switch switch-position">
+                                        <input type="checkbox" class="custom-control-input vertical-aligned-top" id="customSwitch1">
+                                        <label class="custom-control-label" for="customSwitch1"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Impuesto</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around delete-margin">
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Subtotal</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                                <div class="col-sm-5 subcard">
+                                    <label for="staticEmail" class="col-sm-5 col-form-label">Total S.O.</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around delete-margin">
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Descuento Global</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Deuda</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                            
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around delete-margin">
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Costo de envío</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Total Artículos</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>0</strong></label>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-around delete-margin">
+                                <div class="col-sm-5 subcard">
+                                    <label for="inputPassword" class="col-sm-5 col-form-label">Certificado de Regalo</label>
+                                    <label for="staticEmail" class="col-sm-6 col-form-label vertical-aligned-top"><strong>$0.00</strong></label>
+                                </div>
+                                <div class="col-sm-5 subcard" style="padding: 0; background-color: #fff;">
+                                    <a href="#" data-toggle="modal" data-target="#paymentsModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm large-size">
+                                        <i class="fas fa-shopping-cart fa-sm text-white-50"></i> Pagar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Detalle de la órden</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="d-sm-flex align-items-center justify-content-between mb-4 large-size">
+                                        <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control bg-light border-0 small" placeholder="Código de barras" aria-label="Search" aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="button">
+                                                        <i class="fas fa-barcode fa-sm"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                                            <button type="button" class="btn btn-secondary"  data-toggle="modal" data-target="#wishListModal" >Lista de deseos</button>
+                                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#promotionModal">Promociones</button>
+                                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#articlesModal">Agregar artículos</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 157px;">Artículo</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 257px;">Cant.</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 113px;">Tasa</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 49px;">Monto</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 105px;">Impuesto</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 95px;">Total</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 105px;">Almacén</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 95px;">Ubicación</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th rowspan="1" colspan="1">Artículo</th>
+                                                    <th rowspan="1" colspan="1">Cant.</th>
+                                                    <th rowspan="1" colspan="1">Tasa</th>
+                                                    <th rowspan="1" colspan="1">Monto</th>
+                                                    <th rowspan="1" colspan="1">Impuesto</th>
+                                                    <th rowspan="1" colspan="1">Total</th>
+                                                    <th rowspan="1" colspan="1">Almacén</th>
+                                                    <th rowspan="1" colspan="1">Ubicación</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+            
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1"></td>
+                                                    <td class="custom-select"><input class="form-control form-control-sm" type="number"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="custom-select"><input class="form-control form-control-sm" type="text" placeholder=""></td>
+                                                </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="odd">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr><tr role="row" class="even">
+                                                        <td class="sorting_1"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5">
+                                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Mostrando 1 to 10 of 57 entries</div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled" id="dataTable_previous">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li class="paginate_button page-item active">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                                                </li>
+                                                <li class="paginate_button page-item next" id="dataTable_next">
+                                                    <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-sm-12 d-sm-flex align-items-center justify-content-between mb-4">
+                    <a href="#" data-section="new_sales_order" class="col-sm-2 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Limpiar
+                    </a>
+                    <a href="#" data-section="new_sales_order" class="col-sm-2 offset-8 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        Cotizar
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>

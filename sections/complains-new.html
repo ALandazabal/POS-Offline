@@ -1,0 +1,114 @@
+<template class="section-template">
+	<section id="complains-new" class=" margin-top d-none">
+		<div class="container-complains">
+			<div class="register-complains row">
+				<nav aria-label="breadcrumb background-transparent">
+				  <ol class="breadcrumb background-transparent">
+				    <li class="breadcrumb-item"><a href="#" data-section="complains" onclick="sectionDisplay('#complains')">Quejas</a></li>
+				    <li class="breadcrumb-item active" aria-current="page">Nueva Queja</li>
+				  </ol>
+				</nav>
+				<div class="col-12 ">
+					<h3 class="form-complains-title">Registrar Nueva Queja</h3>
+				</div>
+				<form class="col-12 form-complains" >
+				  <div class="form-row">
+				    <div class="col-6">
+				    	<div class="row ">
+				    		<div class="col-3">
+				    			<p>Cliente</p>
+				    		</div>
+				    		<div class="col-8">
+				    			<div class="form-group has-search-filter">
+							    	<span class="fa fa-search form-control-feedback-filter"></span>
+							    	<input type="text" class="form-control" placeholder="Cliente">
+							  </div>
+				    		</div>
+				    		
+				    	</div>
+				     	<div class="row">
+				     		<div class="col-3">
+				     			<p>Tipo</p>
+				     		</div>
+				     		<div class="col-8">
+				     			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+								  <label class="btn btn-outline-primary">
+								    <input type="radio" class="form-control" name="options" id="option2" autocomplete="off"> En casa
+								  </label>
+								  <label class="btn btn-outline-primary">
+								    <input type="radio" name="options" id="option3" autocomplete="off"> Proveedor
+								  </label>
+								</div>
+				     		</div>	
+				     	</div>
+				     	<div class="row row-form-complains">
+				     		<div class="col-3">
+				     			<p>Clase</p>
+				     		</div>
+				     		<div class="col-8">
+				     			<select name="" class="form-control">
+					     			<option value="0">Clase</option>
+					     		</select>
+				     		</div>	
+				     	</div>
+				     	<div class="row row-form-complains">
+				     		<div class="col-3">
+				     			<p>Departamento</p>
+				     		</div>
+				     		<div class="col-8">
+				     			<select name="" class="form-control">
+					     			<option value="0">Departamento</option>
+					     		</select>
+				     		</div>
+				     	</div>
+				    </div>
+				    <div class="col-6">
+				    	<div class="row ">
+				    		<div class="col-3">
+				    			<p>Lugar</p>
+				    		</div>
+				    		<div class="col-8">
+				    			<select name="" class="form-control">
+					     			<option value="0">Lugar</option>
+					     		</select>	
+				    		</div>	
+				    	</div>
+				    	<div class="row row-form-complains">
+				    		<div class="col-3">
+				    			<p>Motivo</p>
+				    		</div>
+				    		<div class="col-8">
+				    			<select name="" class="form-control">
+					     			<option value="0">Motivo de Queja</option>
+					     		</select>
+				    		</div>
+				    	</div>
+				    	<div class="row row-form-complains">
+				    		<div class="col-3">
+				    			<p>F. Venc</p>
+				    		</div>
+				    		<div class="col-8">
+				    			<input type="text" id="fvenc" class="form-control " placeholder="MM/DD/YYYY">
+				    		</div>
+				    	</div>
+				      
+				    </div>
+				  </div>
+				  <div class="row">
+					<div class="col-2 form-complains-back">
+						<a href="#" data-section="complains"  class=""> Regresar</a>
+					</div>
+					<div class="col-7">
+						
+					</div>
+					<div class="col-3">
+						<a href="#" data-section=""  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-check fa-sm text-white-50"></i> Registrar Queja</a>
+					</div>
+				</div>
+				</form>
+
+
+			</div>
+		</div>
+	</section>
+</template>
