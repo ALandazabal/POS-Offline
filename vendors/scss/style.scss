@@ -648,5 +648,6 @@ div.dataTables_wrapper div.dataTables_length select {
 .login-image{
   background: url(../img/nombreNetsoft.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat-y: no-repeat;
 }

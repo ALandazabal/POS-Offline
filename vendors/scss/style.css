@@ -541,4 +541,10 @@ div.dataTables_wrapper div.dataTables_length select {
 .background-input-search {
   background-color: white !important; }
 
+.login-image {
+  background: url(../img/nombreNetsoft.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat-y: no-repeat; }
+
 /*# sourceMappingURL=style.css.map */
