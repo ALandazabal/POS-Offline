@@ -1,10 +1,7 @@
 <template class="section-template">
     <section id="sales_order_section" class="wrapper margin-top section-padding padding-section">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Órdenes de venta y Cotizaciones</h1>
-            <a href="#" data-section="new_sales_order" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="sectionDisplay('#new_sales_order')">
-                <i class="fas fa-plus fa-sm text-white-50"></i> Nueva órden de venta / cotización
-            </a>
+            <h1 class="h3 mb-0 text-gray-800">Cajero</h1>
         </div>
 
         <div class="card shadow mb-4 card-text filter-box">
@@ -24,24 +21,15 @@
                                 <div class="dataTables_length" id="dataTable_length">
                                     <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm  filterFields" style="padding-left: 10px !important;">
                                         <option value="Tipo">Tipo</option>
-                                        <option value="Órden de Venta">Órden de Venta</option>
-                                        <option value="Cotización">Cotización</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                        <option value="Hamburguesa">Hamburguesa</option>
+                                        <option value="Enlatados">Enlatados</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-2">
+                            <div class="col-sm-12 col-md-6">
                                 <div id="dataTable_filterInit" class="dataTables_filter">
-                                    <input id="datepickerInit" type="search" class="form-control form-control-sm fontAwesome filterFields" placeholder="Fecha inicial &#xF0D6;" aria-controls="dataTable">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-2">
-                                <div id="dataTable_filterEnd" class="dataTables_filter">
-                                    <input id="datepickerEnd" type="search" class="form-control form-control-sm  filterFields" placeholder="Fecha fin" aria-controls="dataTable">
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-2">
-                                <div id="dataTable_filterDni" class="dataTables_filter">
-                                    <input type="search" class="form-control form-control-sm  filterFields" placeholder="DNI Cliente" aria-controls="dataTable">
+                                    <input id="datepickerInit" type="search" class="form-control form-control-sm fontAwesome filterFields" placeholder="Buscar" aria-controls="dataTable">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-2">
@@ -53,16 +41,21 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 10px;">
-                            <form class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small background-input-search" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                    </div>
-                                </div>
-                            </form>
+                            <div class="col-sm-12 col-md-1 icons-menu active">
+                                <a class="nav-link" data-section="sales_order_section" onclick="sectionDisplay('#sales_order_section')">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-1 icons-menu">
+                                <a class="nav-link" data-section="products_td" onclick="sectionDisplay('#products_td')">
+                                    <i class="fa fa-th" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <!--<div class="col-sm-12 col-md-1 icons-menu">
+                                <a class="nav-link" data-section="sales_order_section" onclick="sectionDisplay('#sales_order_section')">
+                                    <i class="fa fa-info" aria-hidden="true"></i>
+                                </a>
+                            </div>-->
                         </div>
                         
                     </div>
@@ -70,151 +63,348 @@
             </div>
         </div>
 
-        <div class="card shadow mb-4">
-            <!--<div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-            </div>-->
-            <div class="card-body">
-                <div class="table-responsive">
-                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 157px;">Número</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 257px;">Tipo</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 113px;">Cliente</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 49px;">Fecha</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 105px;">Total (X)</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 95px;">Acción</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">Número</th>
-                                            <th rowspan="1" colspan="1">Tipo</th>
-                                            <th rowspan="1" colspan="1">Cliente</th>
-                                            <th rowspan="1" colspan="1">Fecha</th>
-                                            <th rowspan="1" colspan="1">Total (X)</th>
-                                            <th rowspan="1" colspan="1">Acción</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1"><a class="small" data-section="order_detail" href="#"  onclick="sectionDisplay('#order_detail')">TT-1</a></td>
-                                            <td>Cotización</td>
-                                            <td>Airi Satou</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div><!--<div class="style-icon-delete"><i class="fa fa-trash" aria-hidden="true"></i></div>--></td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="odd">
-                                            <td class="sorting_1">Cara Stevens</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr><tr role="row" class="even">
-                                            <td class="sorting_1">Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td><div class="style-icon-edit large-size"><i class="fa fa-edit" aria-hidden="true"></i></div></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+        <div class="row-items">
+            <div class=" col-6 item-list shadow">
+
+                <div class="row backgroud-box-barcode">
+                    <form class="col-9 style-barcode d-none d-sm-inline-block form-inline mr-auto mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-0 small background-input-search" placeholder="Ingrese código de producto" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-5">
-                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Mostrando 1 to 10 of 57 entries</div>
-                            </div>
-                            <div class="col-sm-12 col-md-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="dataTable_previous">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li class="paginate_button page-item active">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-                                        </li>
-                                        <li class="paginate_button page-item ">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-                                        </li>
-                                        <li class="paginate_button page-item ">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-                                        </li>
-                                        <li class="paginate_button page-item ">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a>
-                                        </li>
-                                        <li class="paginate_button page-item ">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
-                                        </li>
-                                        <li class="paginate_button page-item ">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a>
-                                        </li>
-                                        <li class="paginate_button page-item next" id="dataTable_next">
-                                            <a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
+
+                <div class="item-list2">
+                    <div class="nav block-columns nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                         <a class="nav-link active row nav-link-list" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                            
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                            
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                            
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                        <a class="nav-link row nav-link-list" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" >
+                            <div class="col-2">
+                                <img src="vendors/img/coca.jpg" class="img-list" alt="">
+                            </div>
+                            <div class="col-6 info-complain">
+                                <h5>Bebida pequeña</h5>
+                                <p>Refresco 250ml</p>
+                            </div>
+                            <div class="col-4 item-box-status">
+                                <div class="progress-status"><p>2500</p></div>
+                            </div>
+                        </a>
+                 
+                
+                    </div>
+                
+               </div>
+               
             </div>
+            <div class="col-6 complain-detail shadow">
+                <div class="tab-content" id="v-pills-tabContent">
+                <!-- <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                         <div class="card">
+                         <div class="card-header">
+                             <div class="col-8">
+                             ID #1232	
+                             </div>
+                           
+                           <div class="col-4 complain-box-status">
+                               <div class="pending-status"><p>Pendiente</p></div>
+                           </div>
+                         </div>
+                         <div class="card-body">
+                             <div class="row  ">
+                                 <div class="col-4 ">
+                                  <h5 class="card-title font-weight-bold">Jhon Doe</h5>
+                                  <p class="tag">Cliente</p>
+                                 </div>
+                                 <div class="col-4 text-center">
+                                     <h6 class="card-title font-weight-bold">07/06/2019</h6>
+                                      <p class="tag">Fecha de creación</p>
+                                 </div>
+                                 <div class="col-4 text-center">
+                                     <h6 class="card-title font-weight-bold">10/10/2019</h6>
+                                     <p class="tag">Fecha de vencimiento</p>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-4">
+                                     <p>Clase</p>
+                                     <p>Tipo</p>
+                                     <p>Ubicación</p>
+                                     <p>Departamanto</p>
+                                     <p>Motivo de queja</p>
+                                 </div>
+                                 <div class="col-8">
+                                     <p class="font-weight-bold">Lorem ipsum.</p>
+                                     <p class="font-weight-bold">consectetur adipisicing elit.</p>
+                                     <p class="font-weight-bold">Duis aute irure.</p>
+                                     <p class="font-weight-bold">sunt in culpa qui.</p>
+                                     <p class="font-weight-bold">Excepteur sint occaecat.</p>
+                                 </div>
+                             </div>
+                           <h5 class="card-title"></h5>
+                           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+                         </div>
+                       </div>
+                   
+                 </div>
+                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                     
+                   <div class="card">
+                         <div class="card-header">
+                             <div class="col-8">
+                             ID #1234	
+                             </div>
+                           
+                           <div class="col-4 complain-box-status">
+                               <div class="closed-status"><p>Cerrado</p></div>
+                           </div>
+                         </div>
+                         <div class="card-body">
+                             <div class="row  ">
+                                 <div class="col-4 ">
+                                  <h5 class="card-title font-weight-bold">Jhon Doe</h5>
+                                  <p class="tag">Cliente</p>
+                                 </div>
+                                 <div class="col-4 text-center">
+                                     <h6 class="card-title font-weight-bold">07/06/2019</h6>
+                                      <p class="tag">Fecha de creación</p>
+                                 </div>
+                                 <div class="col-4 text-center">
+                                     <h6 class="card-title font-weight-bold">10/10/2019</h6>
+                                     <p class="tag">Fecha de vencimiento</p>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-4">
+                                     <p>Clase</p>
+                                     <p>Tipo</p>
+                                     <p>Ubicación</p>
+                                     <p>Departamanto</p>
+                                     <p>Motivo de queja</p>
+                                 </div>
+                                 <div class="col-8">
+                                     <p class="font-weight-bold">Lorem ipsum.</p>
+                                     <p class="font-weight-bold">consectetur adipisicing elit.</p>
+                                     <p class="font-weight-bold">Duis aute irure.</p>
+                                     <p class="font-weight-bold">sunt in culpa qui.</p>
+                                     <p class="font-weight-bold">Excepteur sint occaecat.</p>
+                                 </div>
+                             </div>
+                           <h5 class="card-title"></h5>
+                           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+                         </div>
+                       </div>
+                 </div>-->
+                 <div class="tab-pane fade show active" id="item-card" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                     
+                    <div class="card">
+                        <div class="card-header">
+                           <div class="col-8 font-weight-bold text-primary">TOTAL</div>
+
+                          <div class="col-4 font-weight-bold text-danger" style="text-align: right;">$15000</div>
+                        </div>
+                        <div class="card-body cb-style-payment">
+                           <div class="row parent-payment-list">
+                               <table class="table">
+                                 <thead>
+                                     <tr>
+                                         <th>Artículo</th>
+                                         <th>Cantidad</th>
+                                         <th>Precio</th>
+                                         <th>Sub Total</th>
+                                         <th>Acción</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Bebida pequeña</td>
+                                       <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                       <td>2500</td>
+                                       <td>5000</td>
+                                       <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                    </tr>
+                                    <tr>
+                                       <td>Bebida pequeña</td>
+                                       <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                       <td>2500</td>
+                                       <td>5000</td>
+                                       <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                    </tr>
+                                    <tr>
+                                       <td>Bebida pequeña</td>
+                                       <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                       <td>2500</td>
+                                       <td>5000</td>
+                                       <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                    </tr>	
+                                 </tbody>
+                             </table>
+                           </div>
+                           <div class="row parent-pay-button">
+                               <div class="col-sm-12 col-md-4 content-pay-button">
+                                   <div id="dataTable_filter" class="dataTables_filter">
+                                       <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  filterFields" data-toggle="modal" data-target="#paymentsModal">
+                                           Pagar
+                                       </a>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                      </div>
+                </div>
+                 
+               </div>
+            </div>
+            
         </div>
     </section>
 </template>

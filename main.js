@@ -11,6 +11,42 @@ const request = require('request')
 const OAuth = require('oauth-1.0a')
 const crypto = require('crypto')
 
+var knex = require("knex")({
+  client: "sqlite3",
+  connection: {
+    filename: "./database.sqlite"
+  }
+});
+
+//Connection with mysql db
+/*const mysql = require('mysql')
+
+const connection = mysql.createConnection({
+  host: '127.0.0.1',
+  port: 3306,
+  user: 'root',
+  password: '',
+  database: 'dbtours'
+})
+
+connection.connect(function(err){
+  //si hay
+  if(err){
+    console.log(err.code)
+    console.log(err.fatal)
+  }
+})
+
+exports.connection = connection;
+
+exports.closeConnection = () => {
+  connection.end(function(){
+    //close the conecction
+  })
+}
+
+console.log(connection);*/
+
 /*require('electron-reload')(__dirname);*/
 
 //Conexion y llamados http a Netsuite
@@ -30,7 +66,7 @@ var oauth = OAuth({
    realm : 'TSTDRV1132665'
 })
 
-console.log( oauth );
+//console.log( oauth );
 
 var request_data = {
    url: 'https://tstdrv1132665.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1318&deploy=1',
@@ -74,87 +110,97 @@ function createWindow () {
     }
   })
 
-  const template = [
-  // { role: 'appMenu' }
- /* ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  }] : []),*/
-  // { role: 'fileMenu' }
-  {
-    label: 'Archivo',
-    submenu: [
-      { role: 'quit' }
-    ]
-  },
-  // { role: 'editMenu' }
-  {
-    label: 'Editar',
-    submenu: [
-      { role: 'undo' },
-      { role: 'redo' },
-      { type: 'separator' },
-      { role: 'cut' },
-      { role: 'copy' },
-      { role: 'paste' },
-    ]
-  },
-  // { role: 'viewMenu' }
-  {
-    label: 'View',
-    submenu: [
-      { role: 'reload' },
-     /* { role: 'forcereload' },
-      { role: 'toggledevtools' },
-      { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
-      { type: 'separator' },*/
-      { role: 'togglefullscreen' }
-    ]
-  },
-  // { role: 'windowMenu' }
-  {
-    label: 'Window',
-    submenu: [
-      { role: 'minimize' },
-      { role: 'zoom' },
-    ]
-  }
-  /*{
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
-      }
-    ]
-  }*/
-]
+  //SQLite stuff
+  let server = require('./server/server.js')
 
-const menu = Menu.buildFromTemplate(template)
-Menu.setApplicationMenu(menu)
- /* win.setMenu(null)*/
+  const template = [
+    // { role: 'appMenu' }
+   /* ...(process.platform === 'darwin' ? [{
+      label: app.getName(),
+      submenu: [
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'services' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideothers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+      ]
+    }] : []),*/
+    // { role: 'fileMenu' }
+    {
+      label: 'Archivo',
+      submenu: [
+        { role: 'quit' }
+      ]
+    },
+    // { role: 'editMenu' }
+    {
+      label: 'Editar',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+      ]
+    },
+    // { role: 'viewMenu' }
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+       /* { role: 'forcereload' },
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { type: 'separator' },*/
+        { role: 'togglefullscreen' }
+      ]
+    },
+    // { role: 'windowMenu' }
+    {
+      label: 'Window',
+      submenu: [
+        { role: 'minimize' },
+        { role: 'zoom' },
+      ]
+    }
+    /*{
+      role: 'help',
+      submenu: [
+        {
+          label: 'Learn More',
+          click () { require('electron').shell.openExternalSync('https://electronjs.org') }
+        }
+      ]
+    }*/
+  ]
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+   /* win.setMenu(null)*/
   // and load the index.html of the app.
   win.loadFile('login.html')
   win.once('ready-to-show', () => {
-  win.show()
-})
+    win.show()
+  })
+
+  menu.on("mainWindowLoaded", function(){
+    let result = knex.select("FirstName").from("User")
+    result.then(function(rows){
+      mainWindow.webContents.send("resultSent", rows);
+    })
+  })
 
   // Abre las herramientas de desarrollo (DevTools).
-win.webContents.openDevTools()
-
+  win.webContents.openDevTools()
+  
   // Emitido cuando la ventana es cerrada.
   win.on('closed', () => {
     // Elimina la referencia al objeto window, normalmente  guardarías las ventanas

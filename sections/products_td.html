@@ -1,0 +1,370 @@
+<template class="section-template">
+    <section id="products_td" class="wrapper margin-top section-padding padding-section">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Cajero</h1>
+        </div>
+
+        <div class="card shadow mb-4 card-text filter-box">
+            <!--<div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            </div>-->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-2">
+                                <div class="dataTables_length" id="dataTable_length">
+                                    <label>Filtrar por:</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div class="dataTables_length" id="dataTable_length">
+                                    <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm  filterFields" style="padding-left: 10px !important;">
+                                        <option value="Tipo">Tipo</option>
+                                        <option value="Bebidas">Bebidas</option>
+                                        <option value="Hamburguesa">Hamburguesa</option>
+                                        <option value="Enlatados">Enlatados</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div id="dataTable_filterInit" class="dataTables_filter">
+                                    <input id="datepickerInit" type="search" class="form-control form-control-sm fontAwesome filterFields" placeholder="Buscar" aria-controls="dataTable">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <div id="dataTable_filter" class="dataTables_filter">
+                                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  filterFields">
+                                        Filtrar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-sm-12 col-md-1 icons-menu">
+                                <a class="nav-link" data-section="sales_order_section" onclick="sectionDisplay('#sales_order_section')">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-1 icons-menu active">
+                                <a class="nav-link" data-section="products_td" onclick="sectionDisplay('#products_td')">
+                                    <i class="fa fa-th" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <!--<div class="col-sm-12 col-md-1 icons-menu">
+                                <a class="nav-link" data-section="sales_order_section" onclick="sectionDisplay('#sales_order_section')">
+                                    <i class="fa fa-info" aria-hidden="true"></i>
+                                </a>
+                            </div>-->
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-items">
+            <div class=" col-6 item-list shadow">
+
+                <div class="row backgroud-box-barcode">
+                    <form class="col-9 style-barcode d-none d-sm-inline-block form-inline mr-auto mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-0 small background-input-search" placeholder="Ingrese código de producto" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="item-list2">
+                    <div class="nav block-columns nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <div class="row justify-content-md-center">
+                            
+                            <a class="card col-3 card-style active"  id="item-card-1" data-toggle="pill" href="#item-card" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a class="card  col-3 card-style" id="item-card-2" data-toggle="pill" href="#item-card" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a class="card  col-3 card-style" id="item-card-3" data-toggle="pill" href="#item-card" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>                           
+                            
+                            <a class="card  col-3 card-style" id="item-card-4" data-toggle="pill" href="#item-card" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                            </a>
+                            
+                        </div>
+                        <div class="row justify-content-md-center">
+                            
+                            <a href="" class="card col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>                           
+                            
+                                <a href="" class="card  col-3 card-style">
+                                    
+                                        <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                        <div class="card-body body-card-style">
+                                            <p class="card-title">Bebida pequeña</p>
+                                            <p href="#" class="card-price-style">2500</p>
+                                        </div>
+                                    
+                                </a>
+                            
+                        </div>
+                        <div class="row justify-content-md-center">
+                            
+                            <a href="" class="card col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>                           
+                            
+                                <a href="" class="card  col-3 card-style">
+                                    
+                                        <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                        <div class="card-body body-card-style">
+                                            <p class="card-title">Bebida pequeña</p>
+                                            <p href="#" class="card-price-style">2500</p>
+                                        </div>
+                                    
+                                </a>
+                            
+                        </div>
+                        <div class="row justify-content-md-center">
+                            
+                            <a href="" class="card col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>                           
+                            
+                                <a href="" class="card  col-3 card-style">
+                                    
+                                        <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                        <div class="card-body body-card-style">
+                                            <p class="card-title">Bebida pequeña</p>
+                                            <p href="#" class="card-price-style">2500</p>
+                                        </div>
+                                    
+                                </a>
+                            
+                        </div>
+                        <div class="row justify-content-md-center">
+                            
+                            <a href="" class="card col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>
+                            
+                            <a href="" class="card  col-3 card-style">
+                                
+                                    <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                    <div class="card-body body-card-style">
+                                        <p class="card-title">Bebida pequeña</p>
+                                        <p href="#" class="card-price-style">2500</p>
+                                    </div>
+                                
+                            </a>                           
+                            
+                                <a href="" class="card  col-3 card-style">
+                                    
+                                        <img src="vendors/img/coca.jpg" class="card-img-style" alt="">
+                                        <div class="card-body body-card-style">
+                                            <p class="card-title">Bebida pequeña</p>
+                                            <p href="#" class="card-price-style">2500</p>
+                                        </div>
+                                    
+                                </a>
+                            
+                        </div>
+                
+                    </div>
+                
+               </div>
+               
+            </div>
+            <div class="col-6 complain-detail shadow">
+                <div class="tab-content" id="v-pills-tabContent">
+                
+                 <div class="tab-pane fade show active" id="item-card" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                     
+                     <div class="card">
+                         <div class="card-header">
+                            <div class="col-8 font-weight-bold text-primary">TOTAL</div>
+
+                           <div class="col-4 font-weight-bold text-danger" style="text-align: right;">$15000</div>
+                         </div>
+                         <div class="card-body cb-style-payment">
+                            <div class="row parent-payment-list">
+                                <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th>Artículo</th>
+                                          <th>Cantidad</th>
+                                          <th>Precio</th>
+                                          <th>Sub Total</th>
+                                          <th>Acción</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                     <tr>
+                                        <td>Bebida pequeña</td>
+                                        <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                        <td>2500</td>
+                                        <td>5000</td>
+                                        <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                     </tr>
+                                     <tr>
+                                        <td>Bebida pequeña</td>
+                                        <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                        <td>2500</td>
+                                        <td>5000</td>
+                                        <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                     </tr>
+                                     <tr>
+                                        <td>Bebida pequeña</td>
+                                        <td> <input type="number" class="form-control form-control-sm fontAwesome filterFields" min="0" max="100" value="0"></td>
+                                        <td>2500</td>
+                                        <td>5000</td>
+                                        <td class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                                     </tr>	
+                                  </tbody>
+                              </table>
+                            </div>
+                            <div class="row parent-pay-button">
+                                <div class="col-sm-12 col-md-4 content-pay-button">
+                                    <div id="dataTable_filter" class="dataTables_filter" data-toggle="modal" data-target="#paymentsModal">
+                                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  filterFields">
+                                            Pagar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                       </div>
+                 </div>
+                 
+               </div>
+            </div>
+            
+        </div>
+    </section>
+</template>

@@ -16,6 +16,9 @@
 	  
 	<!-- Sections-->
 	<link rel="import" href="sections/sales_order.html">
+	<link rel="import" href="sections/products_td.html">
+	<link rel="import" href="sections/products_info.html">
+
 	<link rel="import" href="sections/order_detail.html">
 	<link rel="import" href="sections/new_sales_order.html">
 	<link rel="import" href="sections/return_auth.html">
@@ -27,6 +30,21 @@
 	<link rel="import" href="sections/items.html">
 	<link rel="import" href="sections/complains.html">
 	<link rel="import" href="sections/complains-new.html">
+	<script>
+		const electron = require("electron");
+		const ipc = electron.ipcRenderer;
+		document.addEventListener("DOMContentLoaded", function(){
+			ipc.send("mainWindowLoaded")
+			ipc.on("resultSent", function(evt, result){
+				let resultEl = document.getElementById("title-text");
+				console.log(result);
+				//for(var i = 0; i < result.length; i++){
+					//resultEl.innerHTML += "First Name: "+ result.FirstName.toString() + "<br/>";
+					resultEl.innerHTML = "First Name: ";
+				//}
+			});
+		});
+	</script>
 	<!-- sections -->
   </head>
   <body>
@@ -44,7 +62,7 @@
 			  <!--<i class="fas fa-laugh-wink"></i> -->
 			  <img class="logo" src="vendors/img/logo.png" alt="Logo Netsoft">
 	        </div>
-	        <div class="sidebar-brand-text mx-3">Netsoft</div>
+	        <div id="title-text" class="sidebar-brand-text mx-3">Netsoft</div>
 	      </a>
 
 	      <!-- Divider -->
@@ -55,7 +73,7 @@
 	        <a class="nav-link" data-section="sales_order_section" onclick="sectionDisplay('#sales_order_section')">
 	          <i class="fas fa-fw fa-clipboard-check"></i>
 
-	          <span>Órdenes de venta y Cotizaciones</span></a>
+	          <span>Cajero</span></a>
 	      </li>
 
 	      <!-- Divider -->
@@ -65,7 +83,7 @@
 	      <li id="a-item" class="nav-item">
 	        <a class="nav-link" href="#" id="" data-section="item" onclick="sectionDisplay('#item')">
 	          <i class="fas fa-fw fa-list icon"></i>
-			  <span>Artículos</span>
+			  <span>Opción 2</span>
 			</a>
 	      </li>
 
@@ -76,7 +94,7 @@
 	      <li class="nav-item">
 				<a class="nav-link" href="#" id="" data-section="empty-page" onclick="sectionDisplay('#empty-page')">
 	          <i class="fas fa-fw fa-pencil-alt icon"></i>
-	          <span>Lsta de deseos</span></a>
+	          <span>Opción 3</span></a>
 	      </li>
 
 	      <!-- Divider -->
@@ -86,7 +104,7 @@
 	      <li class="nav-item">
 	        <a class="nav-link" data-section="return_auth" onclick="sectionDisplay('#return_auth')">
 	          	<i class="fas fa-fw fa-undo-alt icon"></i>
-			  	<span>Devoluciones</span>
+			  	<span>Opción 4</span>
 			</a>
 	      </li>
 
@@ -97,7 +115,7 @@
 	      <li id="a-complains" class="nav-item">
 	        <a class="nav-link" href="#" data-section="complains" onclick="sectionDisplay('#complains')" >
 	          <i class="far fa-fw fa-frown icon"></i>
-	          <span>Quejas</span></a>
+	          <span>Opción 5</span></a>
 	      </li>
 
 	      
@@ -802,52 +820,43 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Pago</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Pagos</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="card shadow mb-4 card-text">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">Nuevo Método de Pago</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-									<div class="row">
-										<div class="form-group row justify-content-around large-size">
-											<div class="col-sm-5">
-												<select name="dataTable_length" aria-controls="dataTable" class="padding-left-select custom-select custom-select-sm form-control form-control-sm">
-													<option value="Tipo">Método de Pago</option>
-													<option value="Órden de Venta">Efectivo</option>
-													<option value="Cotización">Tarjeta Crédito</option>
-												</select>
-											</div>
-											<div class="col-sm-5">
-												<select name="dataTable_length" aria-controls="dataTable" class="padding-left-select custom-select custom-select-sm form-control form-control-sm">
-													<option value="Tipo">Moneda</option>
-													<option value="Órden de Venta">Pesos</option>
-													<option value="Cotización">Dólares</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row justify-content-around large-size">
-											<div class="col-sm-5">
-												<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cantidad">
-											</div>
-											<div class="col-sm-5">
-												<a href="#" data-toggle="modal" data-target="#newUserModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm large-size">
-													<i class="fas fa-credit-card fa-sm text-white-50"></i> Agregar pago
-												</a>
-											</div>
-										</div>
+					<div class="row justify-content-around">
+						<div class="col-5 modal-payments-div2">
+							<select name="dataTable_length" aria-controls="dataTable" class="padding-left-select custom-select custom-select-sm form-control form-control-sm">
+								<option value="Tipo">Método de Pago</option>
+								<option value="Órden de Venta">Efectivo</option>
+								<option value="Cotización">Tarjeta Crédito</option>
+							</select>
+							<input type="text" class="form-control" id="paymentAmount" placeholder="Cantidad">
+							<div class="row parent-pay-button">
+								<div class="col-sm-12 col-md-6 content-pay-button">
+									<div id="dataTable_filter" class="dataTables_filter">
+										<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm  filterFields" data-toggle="modal" data-target="#paymentsModal">
+											Agregar pago
+										</a>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col-5 modal-payments-div2">
+							<div class="row">
+								<h2 class="col-6">Total</h2>
+								<h2 class="col-6 title-info">$14500</h2>
+							</div>
+							<div class="row">
+								<label class="col-9">Cambio</label>
+								<label class="col-2">$500</label>
+							</div>
+						</div>
 					</div>
-					<div class="card shadow mb-4">
+					
+					<div class="card mb-4 table-payments">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">Pagos Agregados</h6>
 						</div>
@@ -861,7 +870,6 @@
 											<thead>
 												<tr role="row">
 													<th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 157px;">Método de pago</th>
-													<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 257px;">Moneda</th>
 													<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 49px;">Cantidad</th>
 													<th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 49px;">Eliminar</th>
 												</tr>
@@ -869,7 +877,6 @@
 											<tfoot>
 												<tr>
 													<th rowspan="1" colspan="1">Método de pago</th>
-													<th rowspan="1" colspan="1">Moneda</th>
 													<th rowspan="1" colspan="1">Cantidad</th>
 													<th rowspan="1" colspan="1">Eliminar</th>
 												</tr>
@@ -877,62 +884,26 @@
 											<tbody>
 												<tr role="row" class="odd">
 													<td class="sorting_1">Efectivo</td>
-													<td>Pesos Méxicanos</td>
 													<td>$10430</td>
-													<td><div class="style-icon-delete"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
+													<td><div class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
 												</tr>
 												<tr role="row" class="odd">
 													<td class="sorting_1">Tarjeta de Crédito</td>
-													<td>Dólares</td>
 													<td>$104</td>
-													<td><div class="style-icon-delete"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
+													<td><div class="style-icon-delete col-12"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
 												</tr>
 											</tbody>
 										</table>
 									</div>
 								</div>
-								<!--<div class="row">
-									<div class="col-sm-12 col-md-5">
-										<div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Mostrando 1 to 10 of 57 entries</div>
-									</div>
-									<div class="col-sm-12 col-md-7">
-										<div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-											<ul class="pagination">
-												<li class="paginate_button page-item previous disabled" id="dataTable_previous">
-													<a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-												</li>
-												<li class="paginate_button page-item active">
-													<a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-												</li>
-												<li class="paginate_button page-item ">
-													<a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-												</li>
-												<li class="paginate_button page-item ">
-													<a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-												</li>
-												<li class="paginate_button page-item ">
-													<a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a>
-												</li>
-												<li class="paginate_button page-item ">
-													<a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a>
-												</li>
-												<li class="paginate_button page-item ">
-													<a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a>
-												</li>
-												<li class="paginate_button page-item next" id="dataTable_next">
-													<a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>-->
+								
 							</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-						<button type="button" class="btn btn-primary">Pagar</button>
+						<button type="button" class="btn btn-success col-4">Pagar</button>
 				</div>
 			</div>
 		</div>
@@ -959,9 +930,9 @@
 	<script src="vendors/js/global.js" type="text/javascript" charset="utf-8"></script>
 
 	<!-- Custom scripts for all pages-->
-  <script src="vendors/js/sb-admin-2.min.js"></script>
-	
+  	<script src="vendors/js/sb-admin-2.min.js"></script>
 	
 	<!-- JavaScript -->
+	<script src="index.js"></script>
   </body>
 </html>
